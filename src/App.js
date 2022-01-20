@@ -4,15 +4,16 @@ import { useState, useMemo } from "react";
 function App() {
   const [number, setNumber] = useState();
 
-  function checkReg(value) {
-    if (value !== /^[0-9]*$/g.exec(value)) {
-      return false;
-    } else {
-      return true;
-    }
-  }
+  
 
-  const memo = useMemo(() => {return checkReg(number)}, [number])
+  const memo = useMemo(() => {
+    const regEx = /^[0-9]*$/g.exec(number);
+    if (regEx && regEx[0] === number) {
+      return true;
+    } else {
+      return false;
+    }
+  }, [number]);
 
   return (
     <div className="App">
@@ -27,7 +28,7 @@ function App() {
           }}
         />
         <span className="icon is-small is-right">
-          <i className={{ memo } ? "fas fa-times" : "fa-check"} />
+          <i className={ memo  ? "fas fa-times" : "fa-check"} />
         </span>
       </div>
     </div>
