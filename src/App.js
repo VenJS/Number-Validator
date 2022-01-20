@@ -2,18 +2,18 @@ import "./App.css";
 import { useState, useMemo } from "react";
 
 function App() {
-  const [number, setNumber] = useState();
+  const [text, setNumber] = useState();
 
   
 
   const memo = useMemo(() => {
-    const regEx = /^[0-9]*$/g.exec(number);
-    if (regEx && regEx[0] === number) {
+    const regEx = /^[0-9]*$/g.exec(text);
+    if (regEx && regEx[0] === text) {
       return true;
     } else {
       return false;
     }
-  }, [number]);
+  }, [text]);
 
   return (
     <div className="App">
