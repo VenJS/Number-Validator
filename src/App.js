@@ -28,7 +28,7 @@ function App() {
           }}
         />
         <span className="icon is-small is-right">
-          <i className={ memo  ? "fas fa-times" : "fa-check"} />
+          <i className={ memo  ? "fa-check" : "fas fa-times"} />
         </span>
       </div>
     </div>
